@@ -6,6 +6,7 @@ public abstract class UnitAbstract {
     private int power;
     private int xp;
     private int gold;
+    private int level = 1;
 
     public UnitAbstract(String name, int HP, int power, int xp, int gold) {
         this.name = name;
@@ -35,11 +36,11 @@ public abstract class UnitAbstract {
         this.HP = HP;
     }
 
-    public int getpower() {
+    public int getPower() {
         return power;
     }
 
-    public void setpower(int power) {
+    public void setPower(int power) {
         this.power = power;
     }
 
@@ -66,4 +67,23 @@ public abstract class UnitAbstract {
     public String toString() {
         return String.format("%s здоровье:%d", name, HP);
     }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void LvlUp() {
+        if (this.getLevel() * 20 == this.getXp()) {
+            this.setLevel(this.getLevel() + 1);
+            this.setHP(this.getHP() + (20 * this.getLevel()));
+            this.setPower(this.getPower() + (5 * this.getLevel()));
+            System.out.printf("Поздравляем вы повысили свой уровень до %d!", this.getLevel());
+        }
+    }
+
+
 }

@@ -125,6 +125,7 @@ public class World {
             @Override
             public void win() {
                 System.out.printf("Вы победили! %n %d опыта %n %d золота %n %d едениц здоровья.%n", player.getXp(), player.getGold(), player.getHP());
+                player.LvlUp();
                 System.out.println("Идем дальше бороться с нечестью? (да/нет)");
                 try {
                     commands(reader.readLine());
